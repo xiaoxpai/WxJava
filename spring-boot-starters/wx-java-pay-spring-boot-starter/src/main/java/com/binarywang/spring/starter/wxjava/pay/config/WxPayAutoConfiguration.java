@@ -42,6 +42,7 @@ public class WxPayAutoConfiguration {
   @ConditionalOnMissingBean(WxPayService.class)
   public WxPayService wxPayService() {
     final WxPayServiceImpl wxPayService = new WxPayServiceImpl();
+    //创建微信支付配置类的实例
     WxPayConfig payConfig = new WxPayConfig();
     payConfig.setAppId(StringUtils.trimToNull(this.properties.getAppId()));
     payConfig.setMchId(StringUtils.trimToNull(this.properties.getMchId()));
